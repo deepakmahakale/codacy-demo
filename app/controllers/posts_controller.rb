@@ -4,6 +4,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    # space around operator
+    # Assignment branch condition too high
+    (1+1+1)^2 + (1+1+1+1+1+1+1+1+1+1+1+1+1)^2 + (1+1+1+1)^2
     @posts = Post.all
   end
 
@@ -23,13 +26,15 @@ class PostsController < ApplicationController
 
   # POST /posts
   # POST /posts.json
+  # Method has too many lines 12/10
   def create
     @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
         format.html do
-          redirect_to @post, notice: 'Post was successfully created.'
+          # Line is too long [122/80]
+          redirect_to @post, notice: 'Post was successfully created. additional text to make it longer than 80 characters'
         end
         format.json { render :show, status: :created, location: @post }
       else
